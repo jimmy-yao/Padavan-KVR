@@ -1,7 +1,8 @@
 THISDIR = $(shell pwd)
 v2ray_dir="v2ray.com/core/main"
 export GO111MODULE=on
-export GOPROXY=https://goproxy.cn
+#export GOPROXY=https://goproxy.cn
+export GOPROXY=https://goproxy.io
 V2ray_VERSION := 5.3.0
 V2ray_URL := https://codeload.github.com/v2fly/v2ray-core/tar.gz/v$(V2ray_VERSION)
 V2RAY_SED_ARGS:=
@@ -23,7 +24,7 @@ build_extract:
 	mkdir -p $(THISDIR)/v2ray.com
 	mkdir -p $(THISDIR)/bin
 	( if [ ! -d $(THISDIR)/v2ray.com/core ]; then \
-	tar zxfv $(THISDIR)/v2ray-core-$(V2ray_VERSION).tar.gz -C $(THISDIR)/v2ray.com ; \
+	tar -zxfv $(THISDIR)/v2ray-core-$(V2ray_VERSION).tar.gz -C $(THISDIR)/v2ray.com ; \
 	mv $(THISDIR)/v2ray.com/v2ray-core-$(V2ray_VERSION) $(THISDIR)/v2ray.com/core ; \
 	fi )
 
